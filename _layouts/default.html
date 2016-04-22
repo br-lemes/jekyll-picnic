@@ -16,81 +16,67 @@ layout: compress
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="{{ site.baseurl }}/">
-						<img alt="Logo" src="{{ site.baseurl }}/images/logo.png" width="24" height="24">
-						{{ site.data[page.lang].blogName }}
-					</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{{ site.baseurl }}/archive{% if site.permaext %}.html{% else %}/{% endif %}">
-							<i class="icon-archive"></i>
-							{{ site.data[page.lang].archive }}
-						</a></li>
-						<li><a href="{{ site.baseurl }}/tags{% if site.permaext %}.html{% else %}/{% endif %}">
-							<i class="icon-tags"></i>
-							{{ site.data[page.lang].tags }}
-						</a></li>
-						<li><a href="{{ site.baseurl }}/about{% if site.permaext %}.html{% else %}/{% endif %}">
-							<i class="icon-about"></i>
-							{{ site.data[page.lang].about }}
-						</a></li>
-						<li><a href="{{ site.baseurl }}/feed.xml">
-							<i class="icon-feed"></i>
-							{{ site.data[page.lang].rss }}
-						</a></li>
-						{% if site.github and site.github != '' %}
-							<li><a href="https://github.com/{{ site.github }}">
-								<i class="icon-github"></i>
-								{{ site.data[page.lang].github }}
-							</a></li>
-						{% endif %}
-					</ul>
-				</div>
-			</div>
-		</div>
+
+<nav>
+	<a href="{{ site.baseurl }}/" class="brand">
+		<img alt="Logo" src="{{ site.baseurl }}/favicon.ico" width="16" height="16">
+		{{ site.data[page.lang].blogName }}
+	</a>
+	<input id="bmenub" type="checkbox" class="show">
+	<label for="bmenub" class="burger pseudo button">&#9776;</label>
+	<div class="menu">
+		<a class="pseudo button" href="{{ site.baseurl }}/archive{% if site.permaext %}.html{% else %}/{% endif %}">
+			<i class="icon-archive"></i>
+			{{ site.data[page.lang].archive }}
+		</a>
+		<a class="pseudo button" href="{{ site.baseurl }}/tags{% if site.permaext %}.html{% else %}/{% endif %}">
+			<i class="icon-tags"></i>
+			{{ site.data[page.lang].tags }}
+		</a>
+		<a class="pseudo button" href="{{ site.baseurl }}/about{% if site.permaext %}.html{% else %}/{% endif %}">
+			<i class="icon-about"></i>
+			{{ site.data[page.lang].about }}
+		</a>
+		<a class="pseudo button" href="{{ site.baseurl }}/feed.xml">
+			<i class="icon-feed"></i>
+			{{ site.data[page.lang].rss }}
+		</a>
+		{% if site.github and site.github != '' %}
+			<a class="pseudo button" href="https://github.com/{{ site.github }}">
+				<i class="icon-github"></i>
+				{{ site.data[page.lang].github }}
+			</a>
+		{% endif %}
 	</div>
+</nav>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9 col-md-push-3">
-				{{ content }}
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<p>Theme by <a href="http://github.com/br-lemes/">
-						<strong>Breno Ramalho Lemes</strong></a> under
-						<a href="http://creativecommons.org/licenses/by/4.0/">
-						Creative Commons Attribution</a>, based on
-						<a href="http://github.com/scotte/jekyll-clean/">
-						Jekyll Clean</a> by
-						<a href="https://github.com/scotte/">Scott Emmons</a>
-						and icons by
-						<a href="http://www.fatcow.com/free-icons/">FatCow</a>.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-md-pull-9">
-				{% include recent-posts.html %}
-			</div>
-		</div>
-	</div>
+{{ content }}
 
+<aside class="card">
+	<header><h3>{{ site.data[page.lang].recentPosts }}</h3></header>
+	{% for post in site.posts limit:5 %}
+	<a class="stack pseudo button" href="{{ site.baseurl }}{{ post.url }}">
+		<i class="icon-post"></i>
+		{{ post.title }}
+	</a>
+	{% endfor %}
+</aside>
 
-	<script src="{{ site.baseurl }}/javascript.js"></script>
+<div class="card">
+	<p>Theme by <a href="http://github.com/br-lemes/">
+	<strong>Breno Ramalho Lemes</strong></a> under
+	<a href="http://creativecommons.org/licenses/by/4.0/">
+	Creative Commons Attribution</a>, based on
+	<a href="http://github.com/scotte/jekyll-clean/">
+	Jekyll Clean</a> by
+	<a href="https://github.com/scotte/">Scott Emmons</a>
+	and icons by
+	<a href="http://www.fatcow.com/free-icons/">FatCow</a>.
+	</p>
+</div>
 
-	{% include disqus-counts.html %}
-	{% include analytics.html %}
+{% include disqus-counts.html %}
+{% include analytics.html %}
 
 </body>
 </html>

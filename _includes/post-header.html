@@ -1,34 +1,30 @@
-{% include open-panel.html %}
-	<h1 class="panel-title">
-			<a href="{{ site.baseurl }}{{ include.post.url }}">
-				<i class="icon-post"></i>
-				{{ include.post.title }}
-			</a>
-		</h1>
-	</div>
-	<div class="panel-body">
-		{% if include.post.date %}
-		<a class="btn btn-success btn-xs"
-			href="{{ site.baseurl }}/archive/{{ include.post.date | date: '%Y' }}{% if site.permaext %}.html{% else %}/{% endif %}">
-			<i class="icon-calendar"></i>
-			{{ include.post.date | date: '%d/%m/%Y' }}
+<header>
+	<h1><a href="{{ site.baseurl }}{{ include.post.url }}">
+		<i class="icon-post"></i> {{ include.post.title }}
+	</a></h1>
+</header>
+{% if include.post.date or include.post.tags or include.post.comments %}
+<header>
+	{% if include.post.date %}
+	<a class="label" href="{{ site.baseurl }}/archive/{{ include.post.date | date: '%Y' }}{% if site.permaext %}.html{% else %}/{% endif %}">
+		<i class="icon-calendar"></i>
+		{{ include.post.date | date: '%d/%m/%Y' }}
+	</a>
+	{% endif %}
+	{% for tag in include.post.tags %}
+	<a class="label"
+		href="{{ site.baseurl }}/tags/{{ tag | downcase | replace: ' ', '-' }}{% if site.permaext %}.html{% else %}/{% endif %}">
+		<i class="icon-tag"></i>
+		{{ tag }}
+	</a>
+	{% endfor %}
+	{% if site.disqus and site.disqus != '' and include.post.comments %}
+	<span class="label">
+		<i class="icon-comments"></i>
+		<a href="{{ site.baseurl }}{{ include.post.url }}#disqus_thread">
+			Comentários
 		</a>
-		{% endif %}
-		{% for tag in include.post.tags %}
-		<a class="btn btn-success btn-xs"
-			href="{{ site.baseurl }}/tags/{{ tag | downcase | replace: ' ', '-' }}{% if site.permaext %}.html{% else %}/{% endif %}">
-			<i class="icon-tag"></i>
-			{{ tag }}
-		</a>
-		{% endfor %}
-		{% if site.disqus and site.disqus != '' and include.post.comments %}
-		<div class="btn-group">
-			<div class="btn btn-success btn-xs">
-				<i class="icon-comments"></i>
-			</div>
-			<a class="btn btn-success btn-xs"
-				href="{{ site.baseurl }}{{ include.post.url }}#disqus_thread">
-				Comentários
-			</a>
-		</div>
-		{% endif %}
+	</span>
+	{% endif %}
+</header>
+{% endif %}

@@ -1,51 +1,42 @@
 ---
 ---
-{% include css/bootstrap.min.css %}
+{% include css/picnic.css %}
 {% include css/syntax.css %}
+{% include css/icons.css %}
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.card div,
+.card p { padding: .6em .8em; }
+.card p { text-align: justify; }
+.card li { padding-right: .6em; text-align: justify; }
+.card footer { border-top: 1px solid #eee; }
+.card a:visited:not(.button):not(.label), .card a.pseudo:visited { color: #551a8b; }
+.label { margin-left: 0; }
+.label a { color: #fff; }
+h1, h2, h3 { font-size: 1.1em; }
+.text-center { text-align: center !important; }
+nav { height: 40px; box-shadow: 0 0 .5em; }
+nav .brand, nav .burger { -webkit-transform: translateY(-50%); }
 body {
-	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-top: 40px;
+	background: repeating-linear-gradient(-45deg, #222, #222 15px, #333 15px, #333 30px);
 	background-attachment: fixed;
-	background-image: url('{{ site.baseurl }}/images/stripe.png');
 }
-
-section {
-	padding-top: 70px;
-	margin-top: -70px;
+@media (max-width: 60em) {
+	.card { margin: 20px 0px 20px 0px }
 }
-
-.btn {
-	margin-bottom: 5px;
-}
-
-@media (max-width: 480px) {
-	.container {
-		padding-left: 0px;
-		padding-right: 0px;
+@media (min-width: 60em) {
+	body { margin-left: 30%; }
+	.card { margin: 20px }
+	aside.card {
+		position: fixed;
+		top: 40px;
+		left: 0;
+		bottom: 0;
+		width: 28%;
 	}
 }
-
-.icon-tags,
-.icon-tag,
-.icon-previous,
-.icon-post,
-.icon-next,
-.icon-github,
-.icon-feed,
-.icon-comments,
-.icon-calendar,
-.icon-bullet_down,
-.icon-archive,
-.icon-about{background-image:url('{{ site.baseurl }}/images/icons.png');background-repeat:no-repeat;width:16px;height:16px;display:inline-block;vertical-align:middle}
-.icon-tags{background-position:0px 0px}
-.icon-tag{background-position:-16px 0px}
-.icon-previous{background-position:0px -16px}
-.icon-post{background-position:-16px -16px}
-.icon-next{background-position:-32px 0px}
-.icon-github{background-position:-32px -16px}
-.icon-feed{background-position:0px -32px}
-.icon-comments{background-position:-16px -32px}
-.icon-calendar{background-position:-32px -32px}
-.icon-bullet_down{background-position:-48px 0px}
-.icon-archive{background-position:-48px -16px}
-.icon-about{background-position:-48px -32px}

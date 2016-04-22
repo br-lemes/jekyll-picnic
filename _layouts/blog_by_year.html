@@ -2,19 +2,12 @@
 layout: default
 ---
 
-{% include open-panel.html %}
-		<h1 class="panel-title">
-			<a href="{{ site.baseurl }}/archive/{{ page.title }}{% if site.permaext %}.html{% else %}/{% endif %}">
-				<i class="icon-calendar"></i>
-				{{ page.title }}
-			</a>
-			<a class="pull-right" href="{{ site.baseurl }}/archive/">
-				{{ site.data[page.lang].allArchives }}
-				<i class="icon-archive"></i>
-			</a>
-		</h1>
-	</div>
-</div>
+<section class="card">
+	<header><h1><a href="{{ site.baseurl }}/archive/{{ page.title }}{% if site.permaext %}.html{% else %}/{% endif %}">
+		<i class="icon-calendar"></i>
+		{{ page.title }}
+	</a></h1></header>
+</section>
 
 {% for post in site.posts %}
 	{% capture postyear %}

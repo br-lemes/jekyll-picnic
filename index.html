@@ -6,39 +6,32 @@ layout: default
 	{% include excerpt.html post=post %}
 {% endfor %}
 
-<div class="panel panel-default">
-	<div class="panel-body">
-		<div class="text-center">{{ site.data[page.lang].page }}:
-		{{ paginator.page }} {{ site.data[page.lang].of }}
-		{{ paginator.total_pages }}</div>
-		{% if paginator.next_page or paginator.previous_page %}
-		<ul class="pager">
-			{% if paginator.previous_page %}
-				{% if paginator.previous_page == 1 %}
-					<li class="previous">
-						<a href="{{ site.baseurl }}/index.html">
-							<i class="icon-previous"></i>
-							{{ site.data[page.lang].newerPost }}
-						</a>
-					</li>
-				{% else %}
-					<li class="previous">
-						<a href="{{ site.baseurl }}/page{{ paginator.previous_page }}">
-							<i class="icon-previous"></i>
-							{{ site.data[page.lang].newerPost }}
-						</a>
-					</li>
-				{% endif %}
+<section class="card">
+	<header class="text-center"><h3>
+		{{ site.data[page.lang].page }}: {{ paginator.page }}
+		{{ site.data[page.lang].of }} {{ paginator.total_pages }}
+	</h3></header>
+	{% if paginator.next_page or paginator.previous_page %}
+	<p class="text-center">
+		{% if paginator.previous_page %}
+			{% if paginator.previous_page == 1 %}
+				<a class="button" href="{{ site.baseurl }}/index.html">
+					<i class="icon-previous"></i>
+					{{ site.data[page.lang].newerPost }}
+				</a>
+			{% else %}
+				<a class="button" href="{{ site.baseurl }}/page{{ paginator.previous_page }}">
+					<i class="icon-previous"></i>
+					{{ site.data[page.lang].newerPost }}
+				</a>
 			{% endif %}
-			{% if paginator.next_page %}
-				<li class="next">
-					<a href="{{ site.baseurl }}/page{{ paginator.next_page }}">
-						{{ site.data[page.lang].olderPost }}
-						<i class="icon-next"></i>
-					</a>
-				</li>
-			{% endif %}
-		</ul>
 		{% endif %}
-	</div>
-</div>
+		{% if paginator.next_page %}
+			<a class="button" href="{{ site.baseurl }}/page{{ paginator.next_page }}">
+				{{ site.data[page.lang].olderPost }}
+				<i class="icon-next"></i>
+			</a>
+		{% endif %}
+	</p>
+	{% endif %}
+</section>

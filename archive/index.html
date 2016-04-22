@@ -3,39 +3,28 @@ layout: default
 title: All Archives
 ---
 
-{% include open-panel.html %}
-	<h1 class="panel-title">
-		<a href="{{ site.baseurl }}/archive/">
-			<i class="icon-archive"></i>
-			{{ site.data[page.lang].allArchives }}
-		</a>
-	</h1>
-</div></div>
-
-<div class="panel-group" id="accordion">
+<section class="card">
+	<header><h1><a href="{{ site.baseurl }}/archive/">
+		<i class="icon-archive"></i>
+		{{ site.data[page.lang].allArchives }}
+	</a></h1></header>
+</section>
 
 {% capture firstyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
 
 {%for post in site.posts %}
 	{% ifchanged %}
 		{% capture postyear %}{{ post.date | date: '%Y' }}{% endcapture %}
-		{% if firstyear != postyear %}</div></div>{% endif %}
-		{% include open-panel.html %}
-		<h2 class="panel-title">
-			<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ postyear }}" style="margin-right: 20px; text-decoration: none;">
-				<i class="icon-bullet_down"></i>
-			</a>
-			<a href="{{ site.baseurl }}/archive/{{ postyear }}{% if site.permaext %}.html{% else %}/{% endif %}">
-				<i class="icon-calendar"></i>
-				{{ postyear }}
-			</a>
-		</h2></div><div id="collapse{{ postyear }}" class="panel-collapse collapse {% if firstyear == postyear %}in{% endif %}">
+		{% if firstyear != postyear %}</article>{% endif %}
+		<article class="card">
+		<header><h2><a href="{{ site.baseurl }}/archive/{{ postyear }}{% if site.permaext %}.html{% else %}/{% endif %}">
+			<i class="icon-calendar"></i>
+			{{ postyear }}
+		</a></h2></header>
 	{% endifchanged %}
-	<a class="list-group-item" href="{{ site.baseurl }}{{ post.url}}">
+	<a class="stack pseudo button" href="{{ site.baseurl }}{{ post.url}}">
 		<i class="icon-post"></i>
 		{{ post.title }}
 	</a>
 {% endfor %}
-</div>
-</div>
-</div>
+</article>

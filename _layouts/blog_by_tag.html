@@ -2,19 +2,12 @@
 layout: default
 ---
 
-{% include open-panel.html %}
-		<h1 class="panel-title">
-			<a href="{{ site.baseurl }}/tags/{{ page.title | downcase | replace: ' ', '-' }}{% if site.permaext %}.html{% else %}/{% endif %}">
-				<i class="icon-tag"></i>
-				{{ page.title }}
-			</a>
-			<a class="pull-right" href="{{ site.baseurl }}/tags/">
-				{{ site.data[page.lang].allTags }}
-				<i class="icon-tags"></i>
-			</a>
-		</h1>
-	</div>
-</div>
+<section class="card">
+	<header><h1><a href="{{ site.baseurl }}/tags/{{ page.title | downcase | replace: ' ', '-' }}{% if site.permaext %}.html{% else %}/{% endif %}">
+		<i class="icon-tag"></i>
+		{{ page.title }}
+	</a></h1></header>
+</section>
 
 {% if site.tags[page.title] %} {% for post in site.tags[page.title] %}
 	{% include excerpt.html post=post %}

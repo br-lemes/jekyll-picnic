@@ -2,44 +2,39 @@
 layout: default
 ---
 
-{% include post-header.html post=page %}
-{{ content }}
-
-<hr>
-
-<ul class="pager">
-	{% if page.next %}
-		<li class="previous">
-			<a href="{{ site.baseurl }}{{ page.next.url }}">
+<article class="card">
+	{% include post-header.html post=page %}
+	{{ content }}
+	{% if page.next or page.previous %}
+		<footer><p class="text-center">
+		{% if page.next %}
+			<a class="button" href="{{ site.baseurl }}{{ page.next.url }}">
 				<i class="icon-previous"></i>
 				{{ site.data[page.lang].newerPost }}
 			</a>
-		</li>
-	{% endif %}
-	{% if page.previous %}
-		<li class="next">
-			<a href="{{ site.baseurl }}{{ page.previous.url }}">
+		{% endif %}
+		{% if page.previous %}
+			<a class="button" href="{{ site.baseurl }}{{ page.previous.url }}">
 				{{ site.data[page.lang].olderPost }}
 				<i class="icon-next"></i>
 			</a>
-		</li>
+		{% endif %}
+		</p></footer>
 	{% endif %}
-</ul>
+</article>
 
 {% if site.disqus and site.disqus != '' and page.comments %}
-<div id="disqus_thread">
+<div class="card"><div id="disqus_thread">
 	<noscript>Please enable JavaScript to view the
 		<a href="http://disqus.com/?ref_noscript">
 			comments powered by Disqus.
 		</a>
 	</noscript>
 	<a href="http://disqus.com" class="dsq-brlink">
-		comments powered by
+		Comments powered by
 		<span class="logo-disqus">Disqus</span>
 	</a>
-</div>
-{% endif %}
-
 </div></div>
+{% endif %}
 
 {% include disqus-comments.html %}
