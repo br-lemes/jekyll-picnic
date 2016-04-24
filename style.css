@@ -19,6 +19,7 @@
 .label a { color: #fff; }
 h1, h2, h3 { font-size: 1.1em; }
 .text-center { text-align: center !important; }
+#more { padding-top: 50px; margin-top: -50px; }
 nav { height: 40px; box-shadow: 0 0 .5em; }
 nav .brand, nav .burger { -webkit-transform: translateY(-50%); }
 body {
