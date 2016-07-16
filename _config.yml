@@ -1,17 +1,17 @@
 # url is currently only used only for the RSS feed in feed.xml
-url: http://br-lemes.github.io
+url: http://www.br-lemes.net/jekyll-picnic/
 
 # baseurl will often be '', but for a project page on gh-pages, it needs to
 # be the project name.
 # *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
 #     run it like so: jekyll serve --baseurl=''
-baseurl: '/jekyll-insane'
+baseurl: '/jekyll-picnic'
 
 # This can be '' to hide the Github nav button
-github: 'br-lemes/jekyll-insane'
+github: 'br-lemes/jekyll-picnic'
 
 # Set this to your UA-# value, or '' to disable the block completely
-gaaccount: ''
+gaaccount: 'UA-56084241-1'
 
 # Set this to your disqus shortname to enable comments.
 disqus: 'br-lemes'
