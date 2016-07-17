@@ -39,12 +39,14 @@ body {
 	.card { margin: 20px; }
 }
 @media (min-width: 60em) {
-	body { margin-left: 30%; }
+	body { margin-left: 30%; max-width: 872px; }
 	aside.card {
 		position: fixed;
 		top: 45px;
-		left: 0;
+		left: auto;
+		right: calc(70% - 20px);
 		bottom: 0;
 		width: 28%;
+		max-width: 350px;
 	}
 }
