@@ -1,0 +1,47 @@
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.card div,
+.card p { padding: .6em .8em; }
+.card p { text-align: justify; }
+.card li { padding-right: .6em; text-align: justify; }
+.card footer { border-top: 1px solid #eee; }
+.card a:visited:not(.button):not(.label), .card a.pseudo:visited { color: #551a8b; }
+.card header:first-child { background-color: #18bc9c; color: #fff; }
+.card header:first-child a:link { color: #fff; }
+.card, .card header, .card footer { border-color: #18bc9c; }
+.card { border-radius: 0; margin: 20px 0px; }
+.label { margin-left: 0; }
+.label a { color: #fff; }
+h1, h2, h3 { font-size: 1em; }
+.text-center { text-align: center !important; }
+#more { padding-top: 55px; margin-top: -55px; }
+nav { height: 45px; }
+nav, nav > .menu { background-color: #2c3e50; }
+nav .brand, nav .burger.pseudo.button,
+nav .menu .pseudo.button { color: #fff; }
+nav .brand, nav .burger { -webkit-transform: translateY(-50%); }
+body {
+	font-size: 1em;
+	padding-top: 45px;
+	background: repeating-linear-gradient(-45deg, #222, #222 15px, #333 15px, #333 30px);
+	background-attachment: fixed;
+}
+@media (min-width: 40em) {
+	.card { margin: 20px; }
+}
+@media (min-width: 60em) {
+	body { margin-left: 30%; max-width: 872px; }
+	aside.card {
+		position: fixed;
+		top: 45px;
+		left: auto;
+		right: calc(70% - 20px);
+		bottom: 0;
+		width: 28%;
+		max-width: 350px;
+	}
+}
