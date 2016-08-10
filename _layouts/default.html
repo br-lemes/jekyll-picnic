@@ -23,7 +23,11 @@ layout: compress
 		{{ site.data[page.lang].blogName }}
 	</a>
 	<input id="bmenub" type="checkbox" class="show" style="opacity: 0;">
-	<label for="bmenub" class="burger pseudo button">&#9776;</label>
+	<label for="bmenub" class="burger">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</label>
 	<div class="menu">
 		<a class="pseudo button" href="{{ site.baseurl }}/archive/">
 			<i class="icon-archive"></i>
